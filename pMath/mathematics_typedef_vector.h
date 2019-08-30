@@ -31,6 +31,7 @@ namespace gmath
 	using Point3 = Vector_3<float>;
 	using Point4 = Vector_4<float>;
 	using Point = Vector_3<float>;
+    using Point2 = Vector_2<long long>;
 	using Color = Vector_4<float>;
 	using UVCoordinate = Vector_2<float>;
 }

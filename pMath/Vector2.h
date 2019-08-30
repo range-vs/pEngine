@@ -338,11 +338,7 @@ namespace gmath
 			return this->y;
 
 		default:
-#ifdef _UNICODE
-			throw gmexception::VectorIndexException(L"Error index for Vector2!");
-#else
-			throw gmexception::VectorIndexException("Error index for Vector2!");
-#endif
+            qFatal("Error index for Vector2!");
 		}
 	}
 
@@ -358,11 +354,7 @@ namespace gmath
 			return this->y;
 
 		default:
-#ifdef _UNICODE
-			throw gmexception::VectorIndexException(L"Error index for Vector2!");
-#else
-			throw gmexception::VectorIndexException("Error index for Vector2!");
-#endif
+            qFatal("Error index for Vector2!");
 		}
 	}
 

@@ -405,11 +405,7 @@ namespace gmath
 	inline Vector_4<T> Matrix_4<T>::operator[](const int & i)const
 	{
 		if (i < 0 || i >= 4)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexLineException(L"Error line for Matrix4!");
-#else
-			throw gmexception::MatrixIndexLineException("Error line for Matrix4!");
-#endif
+            qFatal("Error line for Matrix4!");
 		return Vector_4<T>(this->matrix[i][0], this->matrix[i][1], this->matrix[i][2], this->matrix[i][3]);
 	}
 
@@ -417,17 +413,9 @@ namespace gmath
 	inline const T & Matrix_4<T>::operator()(const int & i, const int &j) const
 	{
 		if (i < 0 || i >= 4)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index line for Matrix4!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index line for Matrix4!");
-#endif
+            qFatal("Error index line for Matrix4!");
 		else if (j < 0 || j >= 4)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index column for Matrix4!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index column for Matrix4!");
-#endif
+            qFatal("Error index column for Matrix4!");
 		else
 			return this->matrix[i][j];
 	}
@@ -436,17 +424,9 @@ namespace gmath
 	inline T & Matrix_4<T>::operator()(const int & i, const int & j)
 	{
 		if (i < 0 || i >= 4)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index line for Matrix4!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index line for Matrix4!");
-#endif
+            qFatal("Error index line for Matrix4!");
 		else if (j < 0 || j >= 4)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index column for Matrix4!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index column for Matrix4!");
-#endif
+            qFatal("Error index column for Matrix4!");
 		return this->matrix[i][j];
 	}
 
@@ -517,12 +497,7 @@ namespace gmath
 		float determ(this->determinant());
 		float tmp_determ(0.f); 
 		if (determ == 0)
-#ifdef _UNICODE
-			throw gmexception::MatrixDeterminantException(L"Determinant matrix is by zero!");
-#else
-			throw gmexception::MatrixDeterminantException("Determinant matrix is by zero!");
-#endif
-
+            qFatal("Determinant matrix is by zero!");
 		// транспонируем матрицу
 		this->transponse(); 
 

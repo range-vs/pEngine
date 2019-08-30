@@ -361,11 +361,7 @@ namespace gmath
 	inline Vector_3<T> Matrix_3<T>::operator[](const int & i)const
 	{
 		if (i < 0 || i >= 3)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexLineException(L"Error line for Matrix3!");
-#else
-			throw gmexception::MatrixIndexLineException("Error line for Matrix3!");
-#endif
+            qFatal("Error line for Matrix3!");
 		return Vector_3<T>(this->matrix[i][0], this->matrix[i][1], this->matrix[i][2]);
 	}
 
@@ -373,17 +369,9 @@ namespace gmath
 	inline const T & Matrix_3<T>::operator()(const int & i, const int &j) const
 	{
 		if (i < 0 || i >= 3)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index line for Matrix3!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index line for Matrix3!");
-#endif
+            qFatal("Error index line for Matrix3!");
 		else if (j < 0 || j >= 3)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index column for Matrix3!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index column for Matrix3!");
-#endif
+            qFatal("Error index column for Matrix3!");
 		else
 			return this->matrix[i][j];
 	}
@@ -392,17 +380,9 @@ namespace gmath
 	inline T & Matrix_3<T>::operator()(const int & i, const int & j)
 	{
 		if (i < 0 || i >= 3)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index line for Matrix3!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index line for Matrix3!");
-#endif
+            qFatal("Error index line for Matrix3!");
 		else if (j < 0 || j >= 3)
-#ifdef _UNICODE
-			throw gmexception::MatrixIndexElementException(L"Error index column for Matrix3!");
-#else
-			throw gmexception::MatrixIndexElementException("Error index column for Matrix3!");
-#endif
+            qFatal("Error index column for Matrix3!");
 		return this->matrix[i][j];
 	}
 
@@ -471,12 +451,7 @@ namespace gmath
 		// детерминант(определитель)
 		float determ(this->determinant());
 		if (determ == 0)
-#ifdef _UNICODE
-			throw gmexception::MatrixDeterminantException(L"Determinant matrix is by zero!");
-#else
-			throw gmexception::MatrixDeterminantException("Determinant matrix is by zero!");
-#endif
-
+            qFatal("Determinant matrix is by zero!");
 		// матрица миноров
 		Matrix_3<T> out;
 		int _i(0);

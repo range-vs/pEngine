@@ -319,7 +319,7 @@ namespace gmath
 	{
 		this->x += v.x;
 		this->y += v.y;
-		this->z += v.x;
+        this->z += v.z;
 		return *this;
 	}
 
@@ -379,11 +379,7 @@ namespace gmath
 			return this->z;
 
 		default:
-#ifdef UNICODE
-			throw gmexception::VectorIndexException(L"Error index for Vector3!");
-#else
-			throw gmexception::VectorIndexException("Error index for Vector3!");
-#endif
+            qFatal("Error index for Vector3!");
 		}
 	}
 
@@ -402,11 +398,7 @@ namespace gmath
 			return this->z;
 
 		default:
-#ifdef UNICODE
-			throw gmexception::VectorIndexException(L"Error index for Vector3!");
-#else
-			throw gmexception::VectorIndexException("Error index for Vector3!");
-#endif
+            qFatal("Error index for Vector3!");
 		}
 	}
 

@@ -44,7 +44,6 @@ SOURCES += \
 
 HEADERS += \
     Common.h \
-    MathExcep.h \
     Matrix.h \
     Matrix2.h \
     Matrix3.h \

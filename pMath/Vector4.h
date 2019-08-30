@@ -317,8 +317,8 @@ namespace gmath
 	{
 		this->x += v.x;
 		this->y += v.y;
-		this->z += v.x;
-		this->w = v.w;
+        this->z += v.z;
+        this->w += v.w; // вместо += может быть =
 		return *this;
 	}
 
@@ -384,11 +384,7 @@ namespace gmath
 			return this->w;
 
 		default:
-#ifdef UNICODE
-			throw gmexception::VectorIndexException(L"Error index for Vector4!");
-#else
-			throw gmexception::VectorIndexException("Error index for Vector4!");
-#endif
+            qFatal("Error index for Vector4!");
 		}
 	}
 
@@ -410,11 +406,7 @@ namespace gmath
 			return this->w;
 
 		default:
-#ifdef UNICODE
-			throw gmexception::VectorIndexException(L"Error index for Vector4!");
-#else
-			throw gmexception::VectorIndexException("Error index for Vector4!");
-#endif
+            qFatal("Error index for Vector4!");
 		}
 	}
 

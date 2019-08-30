@@ -2,9 +2,6 @@
 
 #include "../pEntryPoint/pch.h"
 
-// pMath
-#include "MathExcep.h"
-
 namespace gmath
 {
 	template<class T, size_t arr>
