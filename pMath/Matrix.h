@@ -18,15 +18,6 @@ namespace gmath
 		_Matrix(const _Matrix<T, arr>& m);
 		_Matrix(const std::initializer_list<T>& l);
 		_Matrix(T* arr, size_t s);
-
-		// виртуальные
-		/*virtual void identity() = 0;
-		virtual void transponse() = 0;
-		virtual void reverse() = 0;
-		virtual float determinant() = 0;
-		virtual void inverse() = 0;
-		virtual std::string c_str() = 0;
-		virtual std::wstring c_wstr() = 0;*/
 	};
 
 	// конструкторы

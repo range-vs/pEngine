@@ -84,13 +84,13 @@ namespace gmath
 		friend const Vector_2<T1>operator-(const Vector_2<T1>& v);
 
 		// методы
-		// абстрактные методы
-		T length();
-		void normalize();
-		void inverse();
-		void identity();
-		std::string c_str();
-		std::wstring c_wstr();
+        void normalize() ;
+        void inverse() ;
+        void identity() ;
+        std::string c_str() ;
+        std::wstring c_wstr() ;
+        T length();
+        std::vector<T> toArray();
 
 		// основные
 		static T Length(const Vector_2<T>& v);
@@ -418,7 +418,12 @@ namespace gmath
 	}
 
 	// методы
-	// абстрактные методы
+
+    template<class T>
+    inline std::vector<T> gmath::Vector_2<T>::toArray()
+    {
+        return { this->x,  this->y };
+    }
 
 	 template<class T>
 	inline T Vector_2<T>::length()
