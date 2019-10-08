@@ -39,5 +39,5 @@ class CreatorRenders
     static std::map<uint, std::shared_ptr<CRender>> initializeCreatorsRender();
 
 public:
-    std::shared_ptr<IRender> createRender(uint r, PConsole* pConsole);
+    std::shared_ptr<IRender> createRender(uint cr, PConsole* pConsole);
 };

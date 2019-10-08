@@ -6,14 +6,16 @@ namespace gmtypes
 {
 	enum VectorCoordinate
 	{
-		x = 0,
-		y = 1,
-		z = 2,
-		w = 3,
-		r = 0,
-		g = 1,
-		b = 2,
-		a = 3
+        vx = 0,
+        vy = 1,
+        vz = 2,
+        vw = 3,
+        cr = 0,
+        cg = 1,
+        cb = 2,
+        ca = 3,
+        sw = 0,
+        sh = 1
 	};
 
 	enum PlanesParts

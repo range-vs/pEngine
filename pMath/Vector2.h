@@ -385,10 +385,10 @@ namespace gmath
 	{
 		switch (i)
 		{
-		case gmtypes::x:
+		case gmtypes::vx:
 			return this->x;
 
-		case gmtypes::y:
+		case gmtypes::vy:
 			return this->y;
 
 		default:
@@ -401,10 +401,10 @@ namespace gmath
 	{
 		switch (i)
 		{
-		case gmtypes::x:
+		case gmtypes::vx:
 			return this->x;
 
-		case gmtypes::y:
+		case gmtypes::vy:
 			return this->y;
 
 		default:

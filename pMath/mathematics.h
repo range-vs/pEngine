@@ -15,7 +15,6 @@
 // Пространства имён
 // gmath - graphics math
 // gmtypes - graphics math new types(const and typedef)
-// gmexception - graphics math exception
 
 // Состав аргументов
 // 1 - тип хранимых данных
@@ -30,6 +29,8 @@
 // Point4 - четырехмерная точка
 // Point - трехмерная точка
 // Point2 - двухмерная точка с целочисленными значениями
+// Coordinate2 - двухмерная точка, для хранения координат окна
+// Size2 - двухмерная точка, для хранения размера окна
 // Color - цвет, 4 компонента
 // UVCoordinate - двумерная структура цвета
 // Matrix4 - матрица 4 х 4

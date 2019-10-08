@@ -34,46 +34,46 @@ namespace gmath
 
 	void plane_3::setNormal(const Vector3 & n)
 	{
-		pl[x] = n[x];
-		pl[y] = n[y];
-		pl[z] = n[z];
+		pl[vx] = n[vx];
+		pl[vy] = n[vy];
+		pl[vz] = n[vz];
 	}
 
 	void plane_3::setD(float d)
 	{
-		pl[w] = d;
+		pl[vw] = d;
 	}
 
 	void plane_3::normalize()
 	{
-		float norm = sqrt(pl[x] * pl[x] + pl[y] * pl[y] + pl[z] * pl[z]);
+		float norm = sqrt(pl[vx] * pl[vx] + pl[vy] * pl[vy] + pl[vz] * pl[vz]);
 		if (norm)
 		{
-			pl[x] /= norm;
-			pl[y] /= norm;
-			pl[z] /= norm;
-			pl[w] /= norm;
+			pl[vx] /= norm;
+			pl[vy] /= norm;
+			pl[vz] /= norm;
+			pl[vw] /= norm;
 		}
 		else
 		{
-			pl[x] = 0.0f;
-			pl[y] = 0.0f;
-			pl[z] = 0.0f;
-			pl[w] = 0.0f;
+			pl[vx] = 0.0f;
+			pl[vy] = 0.0f;
+			pl[vz] = 0.0f;
+			pl[vw] = 0.0f;
 		}
 	}
 
 	void plane_3::createPlaneNormalAndPoint(const Vector3& p0, const Vector3& n)
 	{
-		pl[x] = n[x];
-		pl[y] = n[y];
-		pl[z] = n[z];
-		pl[w] = -Vector3::dot(p0, n);
+		pl[vx] = n[vx];
+		pl[vy] = n[vy];
+		pl[vz] = n[vz];
+		pl[vw] = -Vector3::dot(p0, n);
 	}
 
 	float plane_3::shortDistanseFromPointToPlane(const Point & p0)
 	{
-		return pl[x]*p0[x] + pl[y]*p0[y] + pl[z]*p0[z] + pl[w] * 1; // если расстрояние до плоскости < 0 - точка сзади(вектор смотрит от точки), иначе точка спереди(векто смотрит на точку),
+		return pl[vx]*p0[vx] + pl[vy]*p0[vy] + pl[vz]*p0[vz] + pl[vw] * 1; // если расстрояние до плоскости < 0 - точка сзади(вектор смотрит от точки), иначе точка спереди(векто смотрит на точку),
 		// == 0 - точка на плоскости
 	}
 
@@ -84,7 +84,7 @@ namespace gmath
 
 	float & plane_3::getD()
 	{
-		return pl[w];
+		return pl[vw];
 	}
 
 	Vector & plane_3::getPlane()

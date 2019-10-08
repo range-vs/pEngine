@@ -107,7 +107,7 @@ namespace gmath
 		// матрицы вида, левая
 		void createLookAtLHMatrix(const Vector_4<T>& pEye, const Vector_4<T>& pAt, const Vector_4<T>& pUp);
 		void createLookAtLHMatrix(const Vector_3<T>& pEye, const Vector_3<T>& pAt, const Vector_3<T>& pUp);
-        void createLookAtLHMatrixGL(const Vector_3<T>& pEye, const Vector_3<T>& pAt, const Vector_3<T>& pUp);
+        // void createLookAtLHMatrixGL(const Vector_3<T>& pEye, const Vector_3<T>& pAt, const Vector_3<T>& pUp); -- todo, delete
 		// правая
 		void createLookAtRHMatrix(const Vector_4<T>& pEye, const Vector_4<T>& pAt, const Vector_4<T>& pUp);
 		void createLookAtRHMatrix(const Vector_3<T>& pEye, const Vector_3<T>& pAt, const Vector_3<T>& pUp);
@@ -822,31 +822,31 @@ namespace gmath
 		this->createLookAtLHMatrix((Vector_3<T>)pEye, (Vector_3<T>)pAt, (Vector_3<T>)pUp);
 	}
 
-	template<class T>
-	inline void gmath::Matrix_4<T>::createLookAtLHMatrix(const Vector_3<T>& pEye, const Vector_3<T>& pAt, const Vector_3<T>& pUp)
-	{
-		Vector_3<T> zaxis = pAt - pEye; zaxis.normalize();
-		Vector_3<T> xaxis = Vector_3<T>::cross(pUp, zaxis); xaxis.normalize();
-		Vector_3<T> yaxis = Vector_3<T>::cross(zaxis, xaxis); yaxis.normalize();
-		this->identity();
-		this->matrix[0][0] = xaxis[gmtypes::x];
-		this->matrix[0][1] = yaxis[gmtypes::x];
-		this->matrix[0][2] = zaxis[gmtypes::x];
+    template<class T>
+    inline void gmath::Matrix_4<T>::createLookAtLHMatrix(const Vector_3<T>& pEye, const Vector_3<T>& pAt, const Vector_3<T>& pUp)
+    {
+        Vector_3<T> zaxis = pAt - pEye; zaxis.normalize();
+        Vector_3<T> xaxis = Vector_3<T>::cross(pUp, zaxis); xaxis.normalize();
+        Vector_3<T> yaxis = Vector_3<T>::cross(zaxis, xaxis); yaxis.normalize();
+        this->identity();
+        this->matrix[0][0] = xaxis[gmtypes::x];
+        this->matrix[0][1] = yaxis[gmtypes::x];
+        this->matrix[0][2] = zaxis[gmtypes::x];
 
-		this->matrix[1][0] = xaxis[gmtypes::y];
-		this->matrix[1][1] = yaxis[gmtypes::y];
-		this->matrix[1][2] = zaxis[gmtypes::y];
+        this->matrix[1][0] = xaxis[gmtypes::y];
+        this->matrix[1][1] = yaxis[gmtypes::y];
+        this->matrix[1][2] = zaxis[gmtypes::y];
 
-		this->matrix[2][0] = xaxis[gmtypes::z];
-		this->matrix[2][1] = yaxis[gmtypes::z];
-		this->matrix[2][2] = zaxis[gmtypes::z];
+        this->matrix[2][0] = xaxis[gmtypes::z];
+        this->matrix[2][1] = yaxis[gmtypes::z];
+        this->matrix[2][2] = zaxis[gmtypes::z];
 
-		this->matrix[3][0] = (T)(round(-Vector_3<T>::dot(xaxis, pEye) * 1000.) / 1000.);
-		this->matrix[3][1] = (T)(round(-Vector_3<T>::dot(yaxis, pEye) * 1000.) / 1000.);
+        this->matrix[3][0] = (T)(round(-Vector_3<T>::dot(xaxis, pEye) * 1000.) / 1000.);
+        this->matrix[3][1] = (T)(round(-Vector_3<T>::dot(yaxis, pEye) * 1000.) / 1000.);
         this->matrix[3][2] = (T)(round(-Vector_3<T>::dot(zaxis, pEye) * 1000.) / 1000.);
     }
 
-    template<class T>
+    /*template<class T>
     inline void gmath::Matrix_4<T>::createLookAtLHMatrixGL(const Vector_3<T> &pEye, const Vector_3<T> &pAt, const Vector_3<T> &pUp)
     {
         Vector_3<T> forward = pAt - pEye;
@@ -874,7 +874,7 @@ namespace gmath
         Matrix_4<T> translation = Matrix_4<T>::CreateTranslationMatrixXYZ(-pEye[gmtypes::x], -pEye[gmtypes::y], -pEye[gmtypes::z]);
         m *= translation;
         *this = m;
-    }
+    }*/
 
 	template<class T>
 	inline void gmath::Matrix_4<T>::createLookAtRHMatrix(const Vector_4<T>& pEye, const Vector_4<T>& pAt, const Vector_4<T>& pUp)
@@ -1074,7 +1074,7 @@ namespace gmath
 	template<class T>
 	inline Matrix_4<T> gmath::Matrix_4<T>::CreateLookAtRHMatrix(const Vector_3<T>& pEye, const Vector_3<T>& pAt, const Vector_3<T>& pUp)
 	{
-		Matrix_4<T> m; m.createLookAtRRHMatrix(pEye, pAt, pUp);
+        Matrix_4<T> m; m.createLookAtRHMatrix(pEye, pAt, pUp);
 		return m;
 	}
 

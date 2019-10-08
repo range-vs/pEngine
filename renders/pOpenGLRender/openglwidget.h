@@ -47,7 +47,7 @@ class DYNLIB_PRENDER_OPENGL OpenGLRender: public QOpenGLWidget, public IRender
 
 protected:
     void initializeGL() override;
-    void resizeGL(int w, int h) override;
+    void resizeGL(int vw, int h) override;
     void paintGL() override;
 
 
@@ -55,7 +55,7 @@ protected:
     void getContext();
     void createBuffers();
     void initScene();
-    void initCamera(int w, int h);
+    void initCamera(int vw, int h);
     void initRenderLoop();
     GLuint loadShaders(const char * vertex_file_path, const char * fragment_file_path);
 
@@ -74,8 +74,8 @@ signals:
 
     // IRender interface
 public:
-    void initializeRender(int w, int h) override;
-    void resizeRender(int w, int h) override;
+    void initializeRender(int vw, int h) override;
+    void resizeRender(int vw, int h) override;
     void updateRender() override;
     void drawRender() override;
     void showRender() override;
